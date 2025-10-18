@@ -161,7 +161,9 @@ if [ -n "$2" ]; then
 	BRANCH="-b $2"
 fi
 
+echo "GIT_SSH_COMMAND=\"ssh -o StrictHostKeyChecking=no\" git clone $BRANCH $GIT_REPO_URL $CLONE_DIR/anonym-chat"
 if ! GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no" git clone "$BRANCH" "$GIT_REPO_URL" "$CLONE_DIR/anonym-chat"; then
+
 
   echo -e "${MAGENTA}Git clone failed. Please check if the SSH public key has been added to the repository's deploy keys at: https://github.com/Giorgi-Sekhniashvili/anonym-chat/settings/keys${RESET}"
 
