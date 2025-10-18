@@ -157,8 +157,11 @@ mkdir -p $CLONE_DIR
 chown $USER:$USER $CLONE_DIR
 
 BRNACH=""
+echo "Raw \$2: [$2]"
+printf 'Bytes of \$2: '
+printf '%s' "$2" | od -c
 if [ -n "$2" ]; then
-	BRANCH="-b \"$2\""
+	BRANCH="-b $2"
 fi
 
 echo "GIT_SSH_COMMAND=\"ssh -o StrictHostKeyChecking=no\" git clone $BRANCH $GIT_REPO_URL $CLONE_DIR/anonym-chat"
