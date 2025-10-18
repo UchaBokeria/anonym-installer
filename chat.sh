@@ -6,7 +6,7 @@ GIT_REPO_URL="git@github.com:Giorgi-Sekhniashvili/anonym-chat.git"
 
 CLONE_DIR="/root/projects"
 
-PROJECT_NAME="anonym"
+PROJECT_NAME="anonym-chat"
 
 CYAN="\e[36m"
 
