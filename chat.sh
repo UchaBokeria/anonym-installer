@@ -216,11 +216,13 @@ else
 
 fi
 
-cd $PROJECT_DIR && docker compose -f docker-compose.prod.yml up -d
+if [ "$3" = "ssl" ]; then
+	cd $PROJECT_DIR && docker compose -f docker-compose.dev.yml up -d
+else
+	cd $PROJECT_DIR && docker compose -f docker-compose.yml up -d
+fi
 
 echo -e "${GREEN}Docker containers started!${RESET}"
-
-cd $PROJECT_DIR && docker compose exec -it backend uv run alembic upgrade heads
 
 print_complete 6
 
